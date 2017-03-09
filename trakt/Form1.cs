@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Net.Http;
-using Newtonsoft.Json;
 using trakt.Properties;
+using HtmlAgilityPack;
+using System.Collections.Generic;
+using System.Net;
+using System.Text.RegularExpressions;
 
 namespace trakt
 {
@@ -34,6 +29,9 @@ namespace trakt
             text_username.Text = Settings.Default["username"].ToString();
             text_listname.Text = Settings.Default["listname"].ToString();
 
+            if(text_listname.Text != "" && text_username.Text != "")
+                trakt.ListShows(text_username.Text, text_listname.Text);
+
         }
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
@@ -53,5 +51,28 @@ namespace trakt
         {
 
         }
+
+        private void button_search_Click(object sender, EventArgs e)
+        {
+
+
+
+            //string word = "The Walking Dead S07E12";
+            //string source = (new WebClient()).DownloadString("http://tvguru.cz/");
+            //if (source.Contains(word))
+            //    MessageBox.Show("Found it " + word);
+
+           
+
+
+
+
+        }
+
+
+
+
+
+
     }
 }

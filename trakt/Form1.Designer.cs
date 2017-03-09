@@ -33,21 +33,23 @@
             this.listview = new System.Windows.Forms.ListView();
             this.name = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lastepisode = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.url = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label1 = new System.Windows.Forms.Label();
             this.text_username = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // text_listname
             // 
-            this.text_listname.Location = new System.Drawing.Point(907, 125);
+            this.text_listname.Location = new System.Drawing.Point(1053, 125);
             this.text_listname.Name = "text_listname";
             this.text_listname.Size = new System.Drawing.Size(143, 20);
             this.text_listname.TabIndex = 1;
             // 
             // ShowShows
             // 
-            this.ShowShows.Location = new System.Drawing.Point(907, 12);
+            this.ShowShows.Location = new System.Drawing.Point(1053, 12);
             this.ShowShows.Name = "ShowShows";
             this.ShowShows.Size = new System.Drawing.Size(143, 89);
             this.ShowShows.TabIndex = 3;
@@ -59,13 +61,15 @@
             // 
             this.listview.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.name,
-            this.lastepisode});
+            this.lastepisode,
+            this.url,
+            this.columnHeader1});
             this.listview.Location = new System.Drawing.Point(12, 12);
             this.listview.Name = "listview";
-            this.listview.Size = new System.Drawing.Size(889, 565);
+            this.listview.Size = new System.Drawing.Size(1020, 565);
             this.listview.TabIndex = 4;
             this.listview.UseCompatibleStateImageBehavior = false;
-            this.listview.View = System.Windows.Forms.View.Details;
+            this.listview.View = System.Windows.Forms.View.Tile;
             this.listview.SelectedIndexChanged += new System.EventHandler(this.listview_SelectedIndexChanged);
             // 
             // name
@@ -76,12 +80,17 @@
             // lastepisode
             // 
             this.lastepisode.Text = "Poslední epizoda";
-            this.lastepisode.Width = 328;
+            this.lastepisode.Width = 176;
+            // 
+            // url
+            // 
+            this.url.Text = "Odkaz";
+            this.url.Width = 170;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(945, 109);
+            this.label1.Location = new System.Drawing.Point(1091, 109);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 5;
@@ -89,7 +98,7 @@
             // 
             // text_username
             // 
-            this.text_username.Location = new System.Drawing.Point(907, 165);
+            this.text_username.Location = new System.Drawing.Point(1053, 165);
             this.text_username.Name = "text_username";
             this.text_username.Size = new System.Drawing.Size(143, 20);
             this.text_username.TabIndex = 6;
@@ -97,17 +106,22 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(935, 148);
+            this.label2.Location = new System.Drawing.Point(1081, 148);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "jméno uživatele";
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "TITULKY K DISPOZICI";
+            this.columnHeader1.Width = 294;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 589);
+            this.ClientSize = new System.Drawing.Size(1245, 589);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.text_username);
             this.Controls.Add(this.label1);
@@ -132,6 +146,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox text_username;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader url;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
     }
 }
 

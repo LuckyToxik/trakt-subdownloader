@@ -1,10 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using HtmlAgilityPack;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,7 +26,8 @@ namespace trakt
             authjs = new authjs();
             access = new AccessToken();
             form = f;
-           
+            
+
 
         }
         
@@ -67,6 +70,10 @@ namespace trakt
 
                         var show = JsonConvert.DeserializeObject<List<TvShow>>(responseData);
 
+                        HtmlWeb hw = new HtmlWeb();
+                        HtmlAgilityPack.HtmlDocument doc = new HtmlAgilityPack.HtmlDocument();
+                        doc = hw.Load("http://www.tvguru.cz/");
+
                         for (int i = 0; i < show.Count; i++)
                         {
 
@@ -84,6 +91,44 @@ namespace trakt
 
 
                                 item.SubItems.Add(last.number.ToString() + "x" + last.season.ToString() + " " + last.title);
+
+
+
+                               
+
+                                foreach (HtmlNode link in doc.DocumentNode.SelectNodes("//a[@href]"))
+                                {
+
+
+
+                                        string showname_c = show[i].show.title.Replace(" ", "-");
+                                        string showname = showname_c.Replace("-DC's", "");
+
+                                        
+
+                                    string ep = last.number.ToString("D2");
+                                    string se = last.season.ToString("D2");
+
+                                    string c_show = showname + "-s" + se + "e" + ep;
+
+                                    string hrefValue = link.GetAttributeValue("href", string.Empty);
+
+                                        if(hrefValue.Contains(c_show.ToLower()))
+                                    {
+                                        item.SubItems.Add(hrefValue);
+                                        item.SubItems.Add("ANO");
+                                    }
+                                    
+                                        
+
+
+                                }
+
+
+
+
+
+
                             }
                             form.listview.Items.Add(item);
 
@@ -98,6 +143,8 @@ namespace trakt
             catch(Exception e) {
                 MessageBox.Show(e.ToString());
             }
+
+
 
 
 
